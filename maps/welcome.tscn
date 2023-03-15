@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnhgsfvwd0ujb"]
+[gd_scene load_steps=22 format=3 uid="uid://cnhgsfvwd0ujb"]
 
 [ext_resource type="PackedScene" uid="uid://dsm52adrfam01" path="res://prefabs/map_empty.tscn" id="1_5chxy"]
 [ext_resource type="PackedScene" uid="uid://bwnxv0u6mts3x" path="res://prefabs/ent/player_spawn.tscn" id="1_ksfyf"]
+[ext_resource type="FontFile" uid="uid://bw72kml7iakng" path="res://thirdparty/depo.ttf" id="3_q6cxc"]
 [ext_resource type="PackedScene" uid="uid://bq2qmt4o0pxhw" path="res://prefabs/ent/triggers/trigger_logic.tscn" id="4_4g717"]
 [ext_resource type="PackedScene" uid="uid://nhvw5e3iaiuf" path="res://prefabs/ent/game/ent_spawner.tscn" id="4_bno5u"]
 [ext_resource type="PackedScene" uid="uid://c47a3x61oyfrn" path="res://prefabs/ent/logic/button.tscn" id="5_an0wm"]
@@ -152,17 +153,29 @@ shape = SubResource("ConcavePolygonShape3D_a347p")
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6)
 billboard = 1
-text = "Lumina!"
+outline_modulate = Color(0, 0, 0, 0)
+text = "boxima"
+font = ExtResource("3_q6cxc")
+font_size = 128
+
+[node name="Label3D9" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30421, -6)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "lumina but modified"
+font = ExtResource("3_q6cxc")
 font_size = 128
 
 [node name="Label3D2" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64388, -6)
 billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
 text = "If you don't see dev stuff
 launch the game with the developer paramater
 
 Project > Project Settings... > Editor > Run
 Main run args: \"--dev\""
+font = ExtResource("3_q6cxc")
 vertical_alignment = 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

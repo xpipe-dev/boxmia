@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://7jwbl2mossb5"]
+[gd_scene load_steps=9 format=3 uid="uid://7jwbl2mossb5"]
 
 [ext_resource type="Script" path="res://scripts/ui/mainmenu.gd" id="2_yk5dd"]
+[ext_resource type="PackedScene" uid="uid://cg8vmnnhfqsx8" path="res://crosspipe-new/splashes.tscn" id="3_honef"]
+[ext_resource type="Theme" uid="uid://mxnsf5xnxwgi" path="res://cfg/theme.tres" id="3_m68sk"]
+[ext_resource type="PackedScene" uid="uid://cnhgsfvwd0ujb" path="res://maps/welcome.tscn" id="4_84ewm"]
 [ext_resource type="Shader" path="res://mat/ui/chromatic.gdshader" id="4_ly422"]
+[ext_resource type="PackedScene" uid="uid://bps0u666ovdxr" path="res://crosspipe-new/console.tscn" id="6_p83wm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aonqa"]
 shader = ExtResource("4_ly422")
@@ -31,18 +35,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_yk5dd")
 
-[node name="copystring" type="Label" parent="UI"]
-layout_mode = 0
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -24.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Your copyright notice or something"
-horizontal_alignment = 2
+[node name="Splashes" parent="UI" instance=ExtResource("3_honef")]
+layout_mode = 1
 
 [node name="title" type="Label" parent="UI"]
 layout_mode = 1
@@ -53,15 +47,34 @@ offset_left = 32.0
 offset_right = 233.0
 offset_bottom = -32.0
 grow_vertical = 0
-text = "Lumina"
+theme = ExtResource("3_m68sk")
+text = "boxima"
 label_settings = SubResource("LabelSettings_ransg")
 
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1183.0
+offset_top = -30.0
+offset_right = 1183.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="menubuttons" type="HBoxContainer" parent="UI"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 371.0
-offset_bottom = 72.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="newgame" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
@@ -70,6 +83,7 @@ flat = true
 
 [node name="VSeparator" type="VSeparator" parent="UI/menubuttons"]
 layout_mode = 2
+theme = ExtResource("3_m68sk")
 
 [node name="loadgame" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
@@ -78,6 +92,7 @@ flat = true
 
 [node name="VSeparator2" type="VSeparator" parent="UI/menubuttons"]
 layout_mode = 2
+theme = ExtResource("3_m68sk")
 
 [node name="settings" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
@@ -86,6 +101,7 @@ flat = true
 
 [node name="VSeparator3" type="VSeparator" parent="UI/menubuttons"]
 layout_mode = 2
+theme = ExtResource("3_m68sk")
 
 [node name="quit" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
@@ -140,22 +156,14 @@ grow_vertical = 2
 text = "name"
 flat = true
 
-[node name="Label" type="RichTextLabel" parent="UI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -441.0
-offset_top = 32.0
-offset_right = -32.0
-offset_bottom = 55.0
-grow_horizontal = 0
-bbcode_enabled = true
-text = "[b]Welcome to lumina![/b]
-This is the [code]scenes/mainmenu.tscn[/code] file, feel free to edit it to your heart's desires.
+[node name="welcome" parent="." instance=ExtResource("4_84ewm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993805, 0, 0.893989)
 
-Check out the GitHub Wiki for more documentation!"
-fit_content = true
+[node name="Camera3D" type="Camera3D" parent="welcome"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12986, 1.34493, 0.37169)
+current = true
+
+[node name="console" parent="." instance=ExtResource("6_p83wm")]
 
 [connection signal="pressed" from="UI/menubuttons/newgame" to="UI" method="newgame_pressed"]
 [connection signal="pressed" from="UI/menubuttons/settings" to="UI" method="options_pressed"]

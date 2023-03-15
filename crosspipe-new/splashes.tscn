@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg8vmnnhfqsx8"]
+
+[ext_resource type="Texture2D" uid="uid://dnhqpwbp33skd" path="res://crosspipe-new/splash.png" id="1_6ttg6"]
+
+[node name="Splashes" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -164.0
+offset_right = 328.0
+grow_vertical = 0
+
+[node name="Splash" type="Sprite2D" parent="."]
+position = Vector2(42, 94)
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash2" type="Sprite2D" parent="."]
+position = Vector2(74, 91)
+rotation = 0.711915
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash3" type="Sprite2D" parent="."]
+position = Vector2(116, 89.0001)
+rotation = 0.19242
+scale = Vector2(0.993621, 0.864316)
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash4" type="Sprite2D" parent="."]
+position = Vector2(158, 88.0001)
+rotation = 0.19242
+scale = Vector2(0.993621, 0.864316)
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash5" type="Sprite2D" parent="."]
+position = Vector2(198, 89.0001)
+rotation = 0.16116
+scale = Vector2(0.993621, 0.864316)
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash6" type="Sprite2D" parent="."]
+position = Vector2(232, 96.0001)
+rotation = 0.382427
+scale = Vector2(0.993621, 0.864316)
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash7" type="Sprite2D" parent="."]
+position = Vector2(189, 103)
+rotation = 0.154094
+scale = Vector2(0.993621, 0.864316)
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash8" type="Sprite2D" parent="."]
+position = Vector2(144, 103)
+rotation = 0.297594
+scale = Vector2(0.993621, 0.864316)
+texture = ExtResource("1_6ttg6")
+
+[node name="Splash10" type="Sprite2D" parent="."]
+position = Vector2(112, 105)
+rotation = -0.258054
+scale = Vector2(0.993621, 0.864316)
+texture = ExtResource("1_6ttg6")
