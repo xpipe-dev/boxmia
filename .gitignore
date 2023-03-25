@@ -1,2 +1,4 @@
 .godot
 *.import
+maps/backroom.obj
+maps/backroom.mtl

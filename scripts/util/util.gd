@@ -45,8 +45,8 @@ func _ready():
 	loading_screen.visible = false
 
 	await get_tree().create_timer(3).timeout
-
-	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+	if get_tree().current_scene.name == "initial_load":
+		get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
 
 func reload_subtitles():
 	print("reloading subtitles...")

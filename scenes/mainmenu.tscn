@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://7jwbl2mossb5"]
+[gd_scene load_steps=9 format=3 uid="uid://7jwbl2mossb5"]
 
 [ext_resource type="Script" path="res://scripts/ui/mainmenu.gd" id="2_yk5dd"]
+[ext_resource type="Theme" uid="uid://mxnsf5xnxwgi" path="res://cfg/theme.tres" id="3_m68sk"]
 [ext_resource type="Shader" path="res://mat/ui/chromatic.gdshader" id="4_ly422"]
+[ext_resource type="PackedScene" uid="uid://dur77ivf5yhb7" path="res://maps/metroBackround1.tscn" id="6_2qaad"]
+[ext_resource type="PackedScene" uid="uid://bps0u666ovdxr" path="res://crosspipe-new/console.tscn" id="6_p83wm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aonqa"]
 shader = ExtResource("4_ly422")
-shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/r_displacement = Vector2(1, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
-shader_parameter/b_displacement = Vector2(-3, 0)
+shader_parameter/b_displacement = Vector2(-2, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ransg"]
+font_size = 64
+font_color = Color(0.886275, 0.32549, 0.0117647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_probi"]
 font_size = 64
 
 [node name="bgmap" type="Node3D"]
@@ -31,66 +38,69 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_yk5dd")
 
-[node name="copystring" type="Label" parent="UI"]
-layout_mode = 0
+[node name="menubuttons" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 11
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -24.0
+offset_left = -192.0
+offset_right = -24.0
 grow_horizontal = 0
-grow_vertical = 0
-text = "Your copyright notice or something"
-horizontal_alignment = 2
-
-[node name="title" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_right = 233.0
-offset_bottom = -32.0
-grow_vertical = 0
-text = "Lumina"
-label_settings = SubResource("LabelSettings_ransg")
-
-[node name="menubuttons" type="HBoxContainer" parent="UI"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 371.0
-offset_bottom = 72.0
+grow_vertical = 2
+alignment = 1
 
 [node name="newgame" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 text = "New game"
-flat = true
-
-[node name="VSeparator" type="VSeparator" parent="UI/menubuttons"]
-layout_mode = 2
+alignment = 2
 
 [node name="loadgame" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 text = "Load game"
-flat = true
-
-[node name="VSeparator2" type="VSeparator" parent="UI/menubuttons"]
-layout_mode = 2
+alignment = 2
 
 [node name="settings" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 text = "Settings"
-flat = true
-
-[node name="VSeparator3" type="VSeparator" parent="UI/menubuttons"]
-layout_mode = 2
+alignment = 2
 
 [node name="quit" type="Button" parent="UI/menubuttons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 text = "Quit"
-flat = true
+alignment = 2
+
+[node name="menubuttons12" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="chapter_select" type="Window" parent="UI"]
 unique_name_in_owner = true
@@ -140,23 +150,46 @@ grow_vertical = 2
 text = "name"
 flat = true
 
-[node name="Label" type="RichTextLabel" parent="UI"]
+[node name="title" type="Label" parent="UI"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -441.0
-offset_top = 32.0
-offset_right = -32.0
-offset_bottom = 55.0
-grow_horizontal = 0
-bbcode_enabled = true
-text = "[b]Welcome to lumina![/b]
-This is the [code]scenes/mainmenu.tscn[/code] file, feel free to edit it to your heart's desires.
+offset_left = -5.0
+offset_top = 29.0
+offset_right = 223.0
+offset_bottom = 119.0
+rotation = -0.0851824
+scale = Vector2(1.47625, 0.878985)
+theme = ExtResource("3_m68sk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "metro."
+label_settings = SubResource("LabelSettings_ransg")
 
-Check out the GitHub Wiki for more documentation!"
-fit_content = true
+[node name="title2" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 33.0
+offset_top = 85.0
+offset_right = 527.0
+offset_bottom = 175.0
+rotation = -0.0458957
+scale = Vector2(0.472807, 0.387149)
+theme = ExtResource("3_m68sk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PROJECT: ANOR"
+label_settings = SubResource("LabelSettings_probi")
 
+[node name="console" parent="." instance=ExtResource("6_p83wm")]
+
+[node name="metroBackround01" parent="." instance=ExtResource("6_2qaad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301975, 0, -1.28129)
+
+[node name="Camera3D" type="Camera3D" parent="metroBackround01"]
+transform = Transform3D(-0.985996, 0.0310921, -0.163845, 0, 0.982467, 0.186438, 0.166769, 0.183827, -0.968708, 4.26453, 61.936, 31.3983)
+current = true
+fov = 70.8767
+
+[connection signal="mouse_entered" from="UI/menubuttons/newgame" to="UI" method="mouse_entered"]
 [connection signal="pressed" from="UI/menubuttons/newgame" to="UI" method="newgame_pressed"]
+[connection signal="mouse_entered" from="UI/menubuttons/loadgame" to="UI" method="mouse_entered"]
+[connection signal="mouse_entered" from="UI/menubuttons/settings" to="UI" method="mouse_entered"]
 [connection signal="pressed" from="UI/menubuttons/settings" to="UI" method="options_pressed"]
+[connection signal="mouse_entered" from="UI/menubuttons/quit" to="UI" method="mouse_entered"]
 [connection signal="pressed" from="UI/menubuttons/quit" to="UI" method="quit_pressed"]

@@ -1,0 +1,115 @@
+[gd_scene load_steps=23 format=3 uid="uid://dur77ivf5yhb7"]
+
+[ext_resource type="PackedScene" uid="uid://dsm52adrfam01" path="res://prefabs/map_empty.tscn" id="1_8qqba"]
+[ext_resource type="PackedScene" uid="uid://bwnxv0u6mts3x" path="res://prefabs/ent/player_spawn.tscn" id="2_ixuvo"]
+[ext_resource type="ArrayMesh" uid="uid://dyxgnpjq7d7ap" path="res://maps/backroom.obj" id="3_n75xi"]
+[ext_resource type="Texture2D" uid="uid://bohbx0a0gbe3b" path="res://maps/VerticalStrips_S.jpg" id="4_r1inw"]
+[ext_resource type="Texture2D" uid="uid://cpfmvve38pv5u" path="res://maps/untitled.png" id="5_bjjg2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1uow"]
+albedo_texture = ExtResource("4_r1inw")
+metallic = 0.25
+roughness_texture = ExtResource("4_r1inw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27fvk"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhng1"]
+albedo_texture = ExtResource("4_r1inw")
+metallic = 0.25
+roughness_texture = ExtResource("4_r1inw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ycxb"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v77l0"]
+albedo_texture = ExtResource("4_r1inw")
+metallic = 0.25
+roughness_texture = ExtResource("4_r1inw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46ij3"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npick"]
+albedo_texture = ExtResource("4_r1inw")
+metallic = 0.25
+roughness_texture = ExtResource("4_r1inw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bepu"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qjnr"]
+albedo_texture = ExtResource("4_r1inw")
+metallic = 0.25
+roughness_texture = ExtResource("4_r1inw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3srci"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hlye"]
+albedo_texture = ExtResource("4_r1inw")
+metallic = 0.25
+roughness_texture = ExtResource("4_r1inw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goip4"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un2mw"]
+albedo_texture = ExtResource("4_r1inw")
+metallic = 0.25
+roughness_texture = ExtResource("4_r1inw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7kk6"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51264"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("5_bjjg2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmeb5"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("5_bjjg2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsc78"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("5_bjjg2")
+
+[node name="metroBackround01" type="Node3D"]
+
+[node name="map_empty" parent="." instance=ExtResource("1_8qqba")]
+
+[node name="player_spawn" parent="." instance=ExtResource("2_ixuvo")]
+
+[node name="Backroom" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0970521, 0, -0.110664)
+mesh = ExtResource("3_n75xi")
+surface_material_override/0 = SubResource("StandardMaterial3D_m1uow")
+surface_material_override/1 = SubResource("StandardMaterial3D_27fvk")
+surface_material_override/2 = SubResource("StandardMaterial3D_vhng1")
+surface_material_override/3 = SubResource("StandardMaterial3D_2ycxb")
+surface_material_override/4 = SubResource("StandardMaterial3D_v77l0")
+surface_material_override/5 = SubResource("StandardMaterial3D_46ij3")
+surface_material_override/6 = SubResource("StandardMaterial3D_npick")
+surface_material_override/7 = SubResource("StandardMaterial3D_8bepu")
+surface_material_override/8 = SubResource("StandardMaterial3D_6qjnr")
+surface_material_override/9 = SubResource("StandardMaterial3D_3srci")
+surface_material_override/10 = SubResource("StandardMaterial3D_6hlye")
+surface_material_override/11 = SubResource("StandardMaterial3D_goip4")
+surface_material_override/12 = SubResource("StandardMaterial3D_un2mw")
+surface_material_override/13 = SubResource("StandardMaterial3D_m7kk6")
+surface_material_override/14 = SubResource("StandardMaterial3D_51264")
+surface_material_override/15 = SubResource("StandardMaterial3D_lmeb5")
+surface_material_override/16 = SubResource("StandardMaterial3D_nsc78")

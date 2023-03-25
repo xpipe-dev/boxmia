@@ -1,0 +1,261 @@
+[gd_scene load_steps=17 format=3 uid="uid://cgkr2bo8vihbh"]
+
+[sub_resource type="Gradient" id="Gradient_wru1u"]
+colors = PackedColorArray(0.529412, 0.129412, 0.0117647, 1, 0.207843, 0.129412, 0.0117647, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j6l33"]
+gradient = SubResource("Gradient_wru1u")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_xj1cv"]
+colors = PackedColorArray(0, 0, 0, 0.301961, 1, 1, 1, 0.137255)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ucxre"]
+frequency = 0.968
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f48k5"]
+color_ramp = SubResource("Gradient_xj1cv")
+noise = SubResource("FastNoiseLite_ucxre")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7xhf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.686275, 0.52549, 0.184314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u72eq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_cq0ck"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oq315"]
+seed = 194
+frequency = 0.968
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_it7on"]
+color_ramp = SubResource("Gradient_cq0ck")
+noise = SubResource("FastNoiseLite_oq315")
+
+[sub_resource type="Gradient" id="Gradient_e5luu"]
+colors = PackedColorArray(0.415686, 0.211765, 0.0745098, 0.623529, 0.415686, 0.211765, 0.0745098, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3b4j"]
+gradient = SubResource("Gradient_e5luu")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_sm0iy"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wierd vhs line:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3467, -376), Vector2(-3467, 736)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("noise:texture:noise:seed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1000]
+}
+
+[sub_resource type="Animation" id="Animation_gs1o5"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("red_noise:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.545098), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("red_noise:texture:noise:seed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 485]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("noise:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.32549)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("noise:texture:noise:seed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(123123, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8cth"]
+_data = {
+"idle": SubResource("Animation_sm0iy"),
+"intro": SubResource("Animation_gs1o5")
+}
+
+[sub_resource type="GDScript" id="GDScript_8x56p"]
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+
+
+
+func _on_animation_finished(anim_name):
+	if anim_name==\"intro\":
+		play(\"idle\")
+"
+
+[node name="ui_test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="gradient" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_j6l33")
+
+[node name="noise" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.32549)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_f48k5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_top = 71.0
+offset_right = -82.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l7xhf")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -34.0
+offset_right = 175.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u72eq")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.00852465
+theme_override_font_sizes/font_size = 49
+text = "TERMINATED."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="red_noise" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_it7on")
+
+[node name="wierd vhs line" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3467.0
+offset_top = -376.0
+offset_right = 3467.0
+offset_bottom = -736.001
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_e3b4j")
+
+[node name="INTRO" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_i8cth")
+}
+script = SubResource("GDScript_8x56p")
+
+[connection signal="animation_finished" from="INTRO" to="INTRO" method="_on_animation_finished"]

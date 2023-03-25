@@ -1,7 +1,13 @@
 extends Control
 
 var chapters = {
-	"Welcome": "welcome"
+	"Hard Reset": "welcome",
+	"Special Request": "welcome",
+	"The Fall": "welcome",
+	"The Escape": "welcome",
+	"A New Start": "welcome",
+	"The End": "welcome",
+	"???": "welcome"
 }
 
 func paused():
@@ -16,11 +22,9 @@ func _ready():
 		
 		%chapter_select.visible = false
 
-		for item in get_node("menubuttons").get_children():
-			if item is Button:
-				item.connect("mouse_entered", mouse_entered)
 	
-		for chapter in chapters.keys():
+		for i in chapters.size():
+			var chapter = chapters.keys()[i]
 			var button = %chapter_template.duplicate()
 			button.get_node("Button").text = chapter
 			button.get_node("Button").pressed.connect(chapter_pressed.bind(chapter))

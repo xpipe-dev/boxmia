@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsv2j82a8sawq"]
 
-[ext_resource type="Texture2D" uid="uid://m7fgv7t36mdp" path="res://mat/ui/img/logo.png" id="1_tp3gi"]
+[ext_resource type="Texture2D" uid="uid://c3h6vjrcg13d6" path="res://crosspipe-new/xpipe log.png" id="1_pnvyv"]
 
 [node name="initial_load" type="Control"]
 layout_mode = 3
@@ -36,6 +36,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.01376, 1.01376)
 pivot_offset = Vector2(332, 157)
-texture = ExtResource("1_tp3gi")
+texture = ExtResource("1_pnvyv")
 expand_mode = 1
 stretch_mode = 5
